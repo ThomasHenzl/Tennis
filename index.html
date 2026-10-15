@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f4ee">
+    <meta name="description" content="Finde einen freien Termin und reserviere deinen Tennisplatz ganz unkompliziert.">
+    <title>Tennisplatz reservieren</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Tennisplatz Startseite">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none">
+            <rect x="2" y="2" width="32" height="32" rx="11" fill="currentColor"/>
+            <path d="M18 7v22M7 18h22M10.4 8.8c4.4 5 4.4 13.4 0 18.4M25.6 8.8c-4.4 5-4.4 13.4 0 18.4" stroke="#D6F36A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">court<span>side</span></span>
+      </a>
+      <div class="topbar-note"><span class="live-dot"></span> Dein Platz. Deine Zeit.</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> PLATZBUCHUNG</p>
+          <h1>Spielzeit,<br><span>die dir gehört.</span></h1>
+          <p class="hero-description">Such dir deinen Wunschtermin aus und sichere dir den Platz. In nur wenigen Klicks bist du auf dem Court.</p>
+          <div class="hero-details">
+            <span class="detail-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="9" r="2.3" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <span><strong>Dein Tennisplatz</strong><small>Platz 1 · Outdoor</small></span>
+          </div>
+        </div>
+        <div class="court-art" aria-hidden="true">
+          <div class="sun"></div>
+          <div class="court">
+            <span class="court-line court-line-left"></span>
+            <span class="court-line court-line-right"></span>
+            <span class="court-line court-line-middle"></span>
+            <span class="court-line court-line-service-top"></span>
+            <span class="court-line court-line-service-bottom"></span>
+            <span class="net"></span>
+          </div>
+          <div class="art-caption"><span>01</span><span>DER PLATZ WARTET</span></div>
+        </div>
+      </section>
+
+      <section class="booking-section" aria-labelledby="booking-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> ONLINE RESERVIEREN</p>
+            <h2 id="booking-title">Finde deinen Termin.</h2>
+          </div>
+          <div class="duration-pill">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.2" stroke="currentColor" stroke-width="1.5"/><path d="M10 5.8v4.5l3 1.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            60 Minuten pro Buchung
+          </div>
+        </div>
+
+        <div class="booking-layout">
+          <div class="availability-card">
+            <div class="date-heading">
+              <div>
+                <h3>Verfügbare Zeiten</h3>
+                <p>Wähle ein Datum und dann deinen Slot.</p>
+              </div>
+              <label class="date-control">
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="4.5" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 3v3M13.5 3v3M3 8h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <input id="booking-date" type="date" aria-label="Buchungsdatum">
+              </label>
+            </div>
+            <div class="availability-meta">
+              <span id="date-label">Termine am ausgewählten Tag</span>
+              <span class="open-hours">Täglich · 07:00–21:00</span>
+            </div>
+            <div id="time-slots" class="time-slots" aria-label="Verfügbare Buchungszeiten"></div>
+            <p class="slot-hint"><span class="available-dot"></span> Frei <span class="booked-dot"></span> Vergeben <span class="past-dot"></span> Vorbei</p>
+          </div>
+
+          <aside class="reservation-card" aria-labelledby="reservation-title">
+            <div class="reservation-card-top">
+              <span class="card-step">DEIN TERMIN <span>01 / 02</span></span>
+              <span class="tennis-ball" aria-hidden="true">●</span>
+            </div>
+            <h3 id="reservation-title">Reservieren</h3>
+            <p class="reservation-intro">Wähle links eine freie Zeit aus, um fortzufahren.</p>
+            <div id="selected-summary" class="selected-summary" hidden>
+              <span class="summary-label">DEINE AUSWAHL</span>
+              <strong id="summary-date"></strong>
+              <span id="summary-time"></span>
+            </div>
+            <form id="booking-form" hidden>
+              <label for="player-name">Dein Name</label>
+              <input id="player-name" name="name" type="text" autocomplete="name" placeholder="z. B. Alex Müller" maxlength="80" required>
+              <label for="player-email">E-Mail-Adresse</label>
+              <input id="player-email" name="email" type="email" autocomplete="email" placeholder="alex@beispiel.de" maxlength="254" required>
+              <button class="submit-button" type="submit">Platz reservieren <span aria-hidden="true">↗</span></button>
+            </form>
+            <div id="booking-message" class="booking-message" role="status" aria-live="polite"></div>
+            <div class="secure-note">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4" y="8.5" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M6.5 8.5V6a3.5 3.5 0 0 1 7 0v2.5" stroke="currentColor" stroke-width="1.4"/></svg>
+              Schnell gebucht. Direkt bestätigt.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="my-bookings" aria-labelledby="my-bookings-title">
+        <div class="my-bookings-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> DEINE ÜBERSICHT</p>
+            <h2 id="my-bookings-title">Meine Reservierungen<span class="heading-period">.</span></h2>
+          </div>
+          <span id="booking-count" class="booking-count">0 Buchungen</span>
+        </div>
+        <div id="my-bookings-list" class="my-bookings-list"></div>
+      </section>
+
+      <p class="demo-note">Demo-Website: Reservierungen werden nur in diesem Browser gespeichert und nicht mit anderen Geräten synchronisiert.</p>
+    </main>
+
+    <footer class="footer">
+      <a class="brand footer-brand" href="#" aria-label="CourtSide Startseite">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none"><rect x="2" y="2" width="32" height="32" rx="11" fill="currentColor"/><path d="M18 7v22M7 18h22M10.4 8.8c4.4 5 4.4 13.4 0 18.4M25.6 8.8c-4.4 5-4.4 13.4 0 18.4" stroke="#D6F36A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-name">court<span>side</span></span>
+      </a>
+      <span>Gutes Spiel. Gute Zeit.</span>
+    </footer>
+  </body>
+</html>
